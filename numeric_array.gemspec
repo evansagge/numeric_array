@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/numeric_array.rb",
+     "numeric_array.gemspec",
      "spec/numeric_array_spec.rb",
      "spec/spec_helper.rb"
   ]
