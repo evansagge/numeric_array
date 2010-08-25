@@ -3,10 +3,13 @@ module NumericArray
     
     NUMERIC_REGEX = /^-?\d+.?\d*e?-?\d*$/
     
-    def sum
-      check_numeric_array!
-      a = numerify
-      a.inject(0) {|sum, value| sum + value}
+    # Don't require numeric for this Array#sum. ActiveSupport uses it as well: ["foo", "bar"].sum #=> "foobar"
+    def sum(identity = 0, &block)
+      if block_given?
+        map(&block).sum(identity)
+      else
+        inject { |sum, element| sum + element } || identity
+      end
     end
 
     #  average of an array of numbers

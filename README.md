@@ -13,3 +13,13 @@ An extension for the native Array class with support for mathematical/statistica
     - Array#std_dev
 
 
+Usage
+-
+
+    gem install numeric_array
+  
+    require 'numeric_array'
+    
+If using bundler
+
+    gem 'numeric_array', :require => 'numeric_array'

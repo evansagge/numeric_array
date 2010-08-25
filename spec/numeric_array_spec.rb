@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe NumericArray do
-  describe ["1", 2.52, "foo", :bar, "-1.25e45" ] do
-    let(:array) { ["1", 2.52, "foo", :bar, "-1.25e45" ] }    
+  describe [1, "2.52", "foo", 'bar', "-1.25e45" ] do
+    let(:array) { [1, "2.52", "foo", 'bar', "-1.25e45" ] }    
     it { should_not be_numeric }
     it { should_not be_a_numeric_array }
-    its(:numerify!) { lambda{ array.numerify! }.should raise_error(ArgumentError) }
-    its(:sum) { lambda{ array.sum }.should raise_error(ArgumentError) }
     its(:avg) { lambda{ array.avg }.should raise_error(ArgumentError) }
     its(:variance) { lambda{ array.variance }.should raise_error(ArgumentError) }
     its(:std_dev) { lambda{ array.std_dev }.should raise_error(ArgumentError) }
+    its(:numerify!) { lambda{ array.numerify! }.should raise_error(ArgumentError) }    
   end
   
   describe [1, 2.52, -8.65, 20/50.0] do
